@@ -1,0 +1,26 @@
+plugins {
+    id 'java-library'
+    id 'io.quarkus'
+    id 'org.kordamp.gradle.jandex'
+}
+
+group 'org.acme'
+version '1.0-SNAPSHOT'
+
+dependencies {
+    implementation platform("io.quarkus:quarkus-bom:${quarkusVersion}")
+    implementation project (':upper')
+    implementation 'io.quarkus:quarkus-arc'
+    testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.quarkus:quarkus-test-common'
+    // Uncomment to pass the test
+//    testImplementation project (':lower')
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}

@@ -1,0 +1,12 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group 'org.acme'
+version '1.0-SNAPSHOT'
+
+dependencies {
+    implementation platform("io.quarkus:quarkus-bom:${quarkusVersion}")
+    implementation project(':upper')
+}

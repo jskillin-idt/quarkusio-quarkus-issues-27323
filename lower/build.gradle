@@ -1,0 +1,19 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'io.quarkus.extension'
+}
+
+group 'org.acme'
+version '1.0-SNAPSHOT'
+description = 'Greeting extension'
+evaluationDependsOn(':lower-deployment')
+
+quarkusExtension {
+    deploymentModule = 'lower-deployment'
+}
+
+dependencies {
+    implementation platform("io.quarkus:quarkus-bom:${quarkusVersion}")
+    api 'io.quarkus:quarkus-core'
+}
